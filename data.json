@@ -1,0 +1,14 @@
+{
+  "url": "https://www.amazon.com",
+  "search_keyword": "iphone",
+  "db_connection": {
+    "server": "sqllearn.volo.local",
+    "user": "pythonuser",
+    "password": "cA7BHCrLBEGh4CmZ",
+    "database": "AdventureWorks2019"
+  },
+  "SQL": {
+    "create_table": "",
+    "insert_data": ""
+  }
+}
