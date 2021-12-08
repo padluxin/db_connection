@@ -8,7 +8,8 @@
     "database": "AdventureWorks2019"
   },
   "SQL": {
-    "create_table": "",
-    "insert_data": ""
+    "drop_table": "if exists (select 1 from INFORMATION_SCHEMA.columns where TABLE_NAME = 'IphoensPS') DROP TABLE dbo.IphoensPS",
+    "create_table": "CREATE TABLE IphoensPS (ID int IDENTITY(1,1) PRIMARY KEY, Title varchar(255), Price varchar(150));",
+    "insert_data": "INSERT INTO IphoensPS (Title, Price) VALUES {};"
   }
 }

@@ -3,11 +3,14 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import pymssql
 import json
+from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture
 def driver():
-    _driver = webdriver.Chrome(ChromeDriverManager().install())
+    options = Options()
+    options.add_argument('--headless')
+    _driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
     yield _driver
     _driver.quit()
 
@@ -20,6 +23,9 @@ def get_conn(data):
         password=data['db_connection']['password'],
         database=data['db_connection']['database']
     )
+    cursor = _conn.cursor()
+    cursor.execute(data['SQL']['drop_table'])
+    _conn.commit()
     return _conn
 
 
