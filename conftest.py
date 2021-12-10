@@ -26,7 +26,8 @@ def get_conn(data):
     cursor = _conn.cursor()
     cursor.execute(data['SQL']['drop_table'])
     _conn.commit()
-    return _conn
+    yield _conn
+    _conn.close()
 
 
 @pytest.fixture
